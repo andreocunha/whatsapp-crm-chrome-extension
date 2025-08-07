@@ -117,7 +117,13 @@
     // Injeta botão Kanban ao lado do botão de configurações
     (function injectKanbanButton() {
         const interval = setInterval(() => {
-            const settingsButton = document.querySelector('button[aria-label="Settings"]');
+
+            const settingsIcon = document.querySelectorAll('span[data-icon="settings-refreshed"]');
+            
+            if(settingsIcon.length === 0) return;
+            
+            const settingsButton = settingsIcon[0].closest("button");
+
             if (settingsButton && settingsButton.parentElement) {
                 clearInterval(interval);
 
